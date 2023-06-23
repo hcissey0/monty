@@ -71,9 +71,11 @@ void push_err(unsigned int);
 /* opcode funcs */
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
+void pint(stack_t **, unsigned int);
 
 /* helper funcs */
 void freeStack(stack_t *);
 void parser(FILE *, char *, stack_t **, unsigned int);
+int check_int(char *);
 
 #endif /* MONTY_H */

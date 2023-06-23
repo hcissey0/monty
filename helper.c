@@ -28,6 +28,7 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
 {
 	instruction_t opcodes[] = {
 		{"push", push}, {"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
@@ -52,4 +53,21 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
 		freeStack(*stack);
 		exit(EXIT_FAILURE);
 	}
+}
+
+/**
+ * check_int - checks if a string is integer
+ * @str: the string
+ * Return: 0 if true 1 otherwise
+ */
+int check_int(char *str)
+{
+	int i = 0;
+
+	for (; i < strlen(str); i++)
+	{
+		if (str[i] < 48 || str[i] > 57)
+			return (1);
+	}
+	return (0);
 }
