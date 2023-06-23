@@ -72,6 +72,7 @@ void push_err(unsigned int);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
+void pop(stack_t **, unsigned int);
 
 /* helper funcs */
 void freeStack(stack_t *);

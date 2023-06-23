@@ -28,7 +28,7 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
 {
 	instruction_t opcodes[] = {
 		{"push", push}, {"pall", pall},
-		{"pint", pint},
+		{"pint", pint}, {"pop", pop},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
