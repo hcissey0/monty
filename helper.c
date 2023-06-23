@@ -68,6 +68,8 @@ int check_int(char *str)
 
 	for (; i < strlen(str); i++)
 	{
+		if (str[i] == '-')
+			continue;
 		if (str[i] < 48 || str[i] > 57)
 			return (1);
 	}
