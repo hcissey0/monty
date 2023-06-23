@@ -8,10 +8,7 @@ void freeStack(stack_t *stack)
 {
 	stack_t *ptr, *tmp;
 
-	while (stack && stack->prev)
-		stack = stack->prev;
 	ptr = stack;
-
 	while (ptr != NULL)
 	{
 		tmp = ptr;

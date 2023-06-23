@@ -60,8 +60,6 @@ typedef struct global_s
 
 extern global_t glob;
 
-extern char ***instr;
-
 /* errors */
 void usage_err(void);
 void file_err(char *);

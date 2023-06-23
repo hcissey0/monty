@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "monty.h"
 
 global_t glob = {NULL, NULL, NULL};
@@ -32,8 +31,8 @@ int main(int ac, char *av[])
 		c++;
 		if (r != 0)
 			parser(file, line, &stack, c);
-		free(line);
 	}
+	free(line);
 	freeStack(stack);
 	fclose(file);
 	return (0);
