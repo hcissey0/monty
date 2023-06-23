@@ -66,7 +66,7 @@ void file_err(char *);
 void malloc_err(void);
 void opcode_err(int, char *);
 void push_err(unsigned int);
-void exit_fail_safe();
+void exit_fail_safe(void);
 
 /* opcode funcs */
 void push(stack_t **, unsigned int);
