@@ -42,7 +42,7 @@ void malloc_err(void)
 /**
  * exit_fail_safe - exits safe
  */
-void exit_fail_safe()
+void exit_fail_safe(void)
 {
 	fclose(glob.file);
 	free(glob.line);
