@@ -39,6 +39,8 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
 	char *opcode;
 
 	opcode = strtok(line, "\n\t ");
+	if (opcode && opcode[0] == '#')
+		return;
 	glob.arg = strtok(NULL, "\n\t ");
 	while (opcodes[i].opcode && opcode)
 	{

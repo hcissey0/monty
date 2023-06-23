@@ -1,9 +1,12 @@
 push 1
 push 2
+# comments are good
+
 add
 pint
 push 3
 mul
+# I love them
 pint
 push 4
 div
