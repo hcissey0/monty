@@ -15,7 +15,8 @@ void push(stack_t **stack, unsigned int line_number)
 	if (glob.arg == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		freeStack(*stack);
+		exit_fail_safe();
 	}
 	tmp = malloc(sizeof(stack_t));
 	if (tmp == NULL)
@@ -23,7 +24,8 @@ void push(stack_t **stack, unsigned int line_number)
 	if (check_int(glob.arg) != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		freeStack(*stack);
+		exit_fail_safe();
 	}
 	n = atoi(glob.arg);
 	while (*stack && (*stack)->prev)
@@ -68,7 +70,8 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		freeStack(*stack);
+		exit_fail_safe();
 	}
 	printf("%d\n", (*stack)->n);
 }
@@ -85,7 +88,8 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		exit(EXIT_FAILURE);
+		freeStack(*stack);
+		exit_fail_safe();
 	}
 	ptr = *stack;
 	*stack = (*stack)->next;
@@ -106,7 +110,8 @@ void swap(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
+		freeStack(*stack);
+		exit_fail_safe();
 	}
 	tmp = (*stack)->n;
 	(*stack)->n = (*stack)->next->n;

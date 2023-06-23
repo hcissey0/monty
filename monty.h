@@ -65,8 +65,8 @@ void usage_err(void);
 void file_err(char *);
 void malloc_err(void);
 void opcode_err(int, char *);
-/* opcode errors */
 void push_err(unsigned int);
+void exit_fail_safe();
 
 /* opcode funcs */
 void push(stack_t **, unsigned int);
@@ -74,6 +74,8 @@ void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
+
+void add(stack_t **, unsigned int);
 
 /* helper funcs */
 void freeStack(stack_t *);

@@ -38,3 +38,13 @@ void malloc_err(void)
 	fprintf(stderr, "Error: malloc failed\n");
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * exit_fail_safe - exits safe
+ */
+void exit_fail_safe()
+{
+	fclose(glob.file);
+	free(glob.line);
+	exit(EXIT_FAILURE);
+}
