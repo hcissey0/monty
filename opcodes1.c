@@ -1,0 +1,54 @@
+#include "monty.h"
+
+/**
+ * push - pushes to a stack
+ * @stack: the stack head
+ * @line_number: the line number
+ *
+ * Return: void
+ */
+void push(stack_t **stack, unsigned int line_number)
+{
+	int n;
+	stack_t *tmp;
+
+	if (glob.arg == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	tmp = malloc(sizeof(stack_t));
+	if (tmp == NULL)
+		malloc_err();
+	n = atoi(glob.arg);
+	while (*stack && (*stack)->prev)
+		*stack = (*stack)->prev;
+	tmp->n = n;
+	tmp->prev = NULL;
+	tmp->next = *stack;
+
+	if (*stack != NULL)
+		(*stack)->prev = tmp;
+
+	*stack = tmp;
+}
+
+/**
+ * pall - prints the vals of a stack
+ * @stack: points to the head of the stack
+ * @line_number: the line number of the opcode
+ */
+void pall(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr;
+
+	(void)line_number;
+	ptr = *stack;
+	while (ptr != NULL)
+	{
+		printf("%d\n", ptr->n);
+		ptr = ptr->next;
+	}
+}
+
+
