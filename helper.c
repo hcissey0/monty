@@ -62,7 +62,7 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
  */
 int check_int(char *str)
 {
-	int i = 0;
+	size_t i = 0;
 
 	for (; i < strlen(str); i++)
 	{
