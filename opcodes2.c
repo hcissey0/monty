@@ -63,11 +63,11 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - divides the second top by the top
+ * divv - divides the second top by the top
  * @stack: the stack
  * @line_number: line number
  */
-void div(stack_t **stack, unsigned int line_number)
+void divv(stack_t **stack, unsigned int line_number)
 {
 	int div;
 	stack_t *tmp;
@@ -89,6 +89,32 @@ void div(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n = div;
 
 	tmp = (*stack);
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(tmp);
+}
+
+/**
+ * mul - multiplies the second top by the top element
+ * @stack: the stack
+ * @line_number: the line number
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	int mul;
+	stack_t *tmp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		freeStack(*stack);
+		exit_fail_safe();
+	}
+
+	mul = (*stack)->next->n * (*stack)->n;
+	(*stack)->next->n = mul;
+
+	tmp = *stack;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	free(tmp);
