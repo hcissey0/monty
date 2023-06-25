@@ -75,7 +75,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	else
-		printf("%", tmp->n);
+		printf("%c", tmp->n);
 	printf("%c", tmp->n);
 	while (tmp != NULL)
 	{
