@@ -68,7 +68,14 @@ void pstr(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	tmp = *stack;
-	printf("%c", (*stack)->n);
+	if (tmp->n < 1 || tmp->n > 127)
+	{
+		printf("\n");
+		return;
+	}
+	else
+		printf("%", tmp->n);
+	printf("%c", tmp->n);
 	while (tmp != NULL)
 	{
 		if (tmp->next == NULL || tmp->next->n < 1 || tmp->next->n > 127)
@@ -76,6 +83,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 			printf("\n");
 			return;
 		}
+		printf("%c", tmp->next->n);
 		tmp = tmp->next;
 	}
 }
