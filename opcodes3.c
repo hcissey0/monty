@@ -30,3 +30,25 @@ void mod(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 	free(tmp);
 }
+
+/**
+ * pchar - prints a character to stdout
+ * @stack: the stack
+ * @line_number: the line number
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		freeStack(*stack);
+		exit_fail_safe();
+	}
+	if ((*stack)->n < 0 || (*stack)->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		freeStack(*stack);
+		exit_fail_safe();
+	}
+	printf("%c\n", (*stack)->n);
+}
