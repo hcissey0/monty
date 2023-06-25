@@ -33,7 +33,7 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
 		{"nop", nop}, {"sub", sub},
 		{"div", divv}, {"mul", mul},
 		{"mod", mod}, {"pchar", pchar},
-		{"pstr", pstr},
+		{"pstr", pstr}, {"rotl", rotl},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;

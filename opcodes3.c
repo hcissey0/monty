@@ -87,3 +87,25 @@ void pstr(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
+
+/**
+ * rotl - rotates the first element
+ * @stack: the stack
+ * @line_number: the line number
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+
+	tmp = *stack;
+	if (*stack != NULL && (*stack)->next != NULL)
+	{
+		while (tmp != NULL && tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = *stack;
+		(*stack)->prev = tmp;
+		*stack = (*stack)->next;
+		(*stack)->prev->next = NULL;
+		(*stack)->prev = NULL;
+	}
+}
