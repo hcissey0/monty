@@ -10,7 +10,6 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	int n;
-	stack_t *tmp;
 
 	if (glob.arg == NULL)
 	{
@@ -18,9 +17,6 @@ void push(stack_t **stack, unsigned int line_number)
 		freeStack(*stack);
 		exit_fail_safe();
 	}
-	tmp = malloc(sizeof(stack_t));
-	if (tmp == NULL)
-		malloc_err();
 	if (check_int(glob.arg) != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -28,16 +24,11 @@ void push(stack_t **stack, unsigned int line_number)
 		exit_fail_safe();
 	}
 	n = atoi(glob.arg);
-	while (*stack && (*stack)->prev)
-		*stack = (*stack)->prev;
-	tmp->n = n;
-	tmp->prev = NULL;
-	tmp->next = *stack;
 
-	if (*stack != NULL)
-		(*stack)->prev = tmp;
-
-	*stack = tmp;
+	if (glob.sq == 1)
+		add_to_stack(stack, n);
+	else
+		add_to_queue(stack, n);
 }
 
 /**

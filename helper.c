@@ -34,7 +34,8 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
 		{"div", divv}, {"mul", mul},
 		{"mod", mod}, {"pchar", pchar},
 		{"pstr", pstr}, {"rotl", rotl},
-		{"rotr", rotr},
+		{"rotr", rotr}, {"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
@@ -80,4 +81,51 @@ int check_int(char *str)
 			return (1);
 	}
 	return (0);
+}
+
+/**
+ * add_to_queue - addd and element to a queue
+ * @queue: the queue
+ * @n: the element
+ */
+void add_to_queue(stack_t **queue, int n)
+{
+	stack_t *ptr, *tmp;
+
+	ptr = malloc(sizeof(stack_t));
+	if (ptr == NULL)
+		malloc_err();
+	ptr->n = n;
+	ptr->prev = NULL;
+	ptr->next = NULL;
+	if (*queue == NULL)
+		*queue = ptr;
+	else
+	{
+		tmp = *queue;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = ptr;
+		ptr->prev = tmp;
+	}
+}
+
+/**
+ * add_to_stack - adds to the stack
+ * @stack: the stack
+ * @n: the element
+ */
+void add_to_stack(stack_t **stack, int n)
+{
+	stack_t *ptr;
+
+	ptr = malloc(sizeof(stack_t));
+	if (ptr == NULL)
+		malloc_err();
+	ptr->n = n;
+	ptr->prev = NULL;
+	ptr->next = *stack;
+	if (*stack != NULL)
+		(*stack)->prev = ptr;
+	*stack = ptr;
 }

@@ -56,6 +56,7 @@ typedef struct global_s
 	FILE *file;
 	char *line;
 	char *arg;
+	int sq;
 } global_t;
 
 extern global_t glob;
@@ -87,9 +88,15 @@ void pstr(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 void rotr(stack_t **, unsigned int);
 
+void stack(stack_t **, unsigned int);
+void queue(stack_t **, unsigned int);
+
+
 /* helper funcs */
 void freeStack(stack_t *);
 void parser(FILE *, char *, stack_t **, unsigned int);
 int check_int(char *);
+void add_to_queue(stack_t **, int);
+void add_to_stack(stack_t **, int);
 
 #endif /* MONTY_H */

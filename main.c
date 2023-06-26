@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_t glob = {NULL, NULL, NULL};
+global_t glob = {NULL, NULL, NULL, 1};
 
 /**
  * main - Entry point
