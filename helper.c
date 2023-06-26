@@ -34,7 +34,7 @@ void parser(FILE *file, char *line, stack_t **stack, unsigned int c)
 		{"div", divv}, {"mul", mul},
 		{"mod", mod}, {"pchar", pchar},
 		{"pstr", pstr}, {"rotl", rotl},
-		{"rotr", rotr}, {"stack", stack},
+		{"rotr", rotr}, {"stack", stacker},
 		{"queue", queue},
 		{NULL, NULL}
 	};

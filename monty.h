@@ -88,7 +88,7 @@ void pstr(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 void rotr(stack_t **, unsigned int);
 
-void stack(stack_t **, unsigned int);
+void stacker(stack_t **, unsigned int);
 void queue(stack_t **, unsigned int);
 
 

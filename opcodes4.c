@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * stack - changes to stack
+ * stacker - changes to stack
  * @stack: the stack
  * @line_number: the line number
  */
-void stack(stack_t **stack, unsigned int line_number)
+void stacker(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
